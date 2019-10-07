@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.IO.Packaging;
 
 namespace WpfApp2 {
     /// <summary>
@@ -28,9 +29,13 @@ namespace WpfApp2 {
 
         //   Variables section
 
-        public string settingsFilePath = @"C:\temp\sample.txt";
-        // TODO: calculate proper value above
         public bool isModified = false;
+        public static string settingsFilePath =
+            Environment.GetEnvironmentVariable("LOCALAPPDATA") + 
+            @"\Packages\" +
+            @"Microsoft.WindowsTerminal_8wekyb3d8bbwe" + 
+            @"\LocalState\profiles.json";
+        
 
         // internal functions
 
@@ -81,6 +86,11 @@ namespace WpfApp2 {
                 return;
             }
 
+            // create a backup file
+            string TimeStamp = DateTime.Now.ToString(@"ddMMMyyyy.HHmmss");
+            string NewName = System.IO.Path.ChangeExtension(settingsFilePath, TimeStamp + ".json");
+            File.Copy(settingsFilePath, NewName);
+            // save new settings
             File.WriteAllText(settingsFilePath, TextBox.Text);
             LoadButton.IsEnabled = false;
             SaveButton.IsEnabled = false;
@@ -95,6 +105,10 @@ namespace WpfApp2 {
                 Application.Current.Shutdown();
             }
 
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e) {
+            FileNameStatus.Text = settingsFilePath;
         }
     }
 }

@@ -5,14 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" FontFamily="Lucida Sans Typewriter" FontWeight="Bold" FontSize="14">
+        Title="MainWindow" Height="450" Width="800" FontFamily="Lucida Sans Typewriter" FontWeight="Bold" FontSize="14" Loaded="Window_Loaded">
     <Grid>
         <TextBox x:Name="TextBox" Margin="2,77,2,24" TextWrapping="Wrap" VerticalAlignment="Stretch" AcceptsReturn="True" Padding="8,8,8,8" IsEnabled="False" TextChanged="TextBox_TextChanged"/>
         <Button x:Name="LoadButton" Content="Load" HorizontalAlignment="Left" Margin="91,40,0,0" VerticalAlignment="Top" Click="LoadButton_Click" Width="60"/>
         <Button x:Name="SaveButton" Content="Save" HorizontalAlignment="Left" Margin="353,40,0,0" VerticalAlignment="Top" Width="60" IsEnabled="False" Click="SaveButton_Click"/>
         <Button x:Name="ExitButton" Content="Exit" HorizontalAlignment="Left" Margin="617,40,0,0" VerticalAlignment="Top" Width="60" Click="ExitButton_Click"/>
-        <StatusBar Height="24" VerticalAlignment="Bottom" FontFamily="Lucida Sans Typewriter">
+        <StatusBar x:Name="StatusBar" Height="24" VerticalAlignment="Bottom" FontFamily="Lucida Sans Typewriter">
             <TextBlock Text="Please load settings file..."/>
+            <TextBlock x:Name="FileNameStatus" Text="FileName"/>
         </StatusBar>
         <Label Content="Windows Terminal Settings Editor" HorizontalAlignment="Center" Margin="0,8,0,0" VerticalAlignment="Top"/>
 

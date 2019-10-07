@@ -68,7 +68,8 @@ namespace WpfApp2 {
                 TextBox.IsEnabled = true;
                 LoadButton.IsEnabled = false;
                 SaveButton.IsEnabled = false;
-                // update status
+
+                FileSettingsStatus.Text = "Settings file loaded.";
             }
 
         }
@@ -77,7 +78,8 @@ namespace WpfApp2 {
             LoadButton.IsEnabled = true;
             SaveButton.IsEnabled = true;
             isModified = true;
-            // update status
+
+            FileSettingsStatus.Text = "Modifying Settings file.";
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e) {
@@ -96,8 +98,8 @@ namespace WpfApp2 {
             SaveButton.IsEnabled = false;
             isModified = false;
             // set status
-            MessageBox.Show("File saved!");
-
+            MessageBox.Show("File saved! Backup made.");
+            FileSettingsStatus.Text = "Settings file saved.";
         }
 
         private void ExitButton_Click(object sender, RoutedEventArgs e) {

@@ -54,6 +54,17 @@ namespace WpfApp2 {
             }
         }
 
+        private void ChangeFileSettingsStatus(string str)
+        {
+            if (String.IsNullOrEmpty(str)) {
+                FileSettingsStatus.Text = "";
+                return;
+            }
+            else {
+                FileSettingsStatus.Text = str;
+            }
+        }
+
         // GUI events handling
 
         private void LoadButton_Click(object sender, RoutedEventArgs e) {
@@ -69,7 +80,7 @@ namespace WpfApp2 {
                 LoadButton.IsEnabled = false;
                 SaveButton.IsEnabled = false;
 
-                FileSettingsStatus.Text = "Settings file loaded.";
+                ChangeFileSettingsStatus("Settings file loaded.");
             }
 
         }
@@ -79,7 +90,7 @@ namespace WpfApp2 {
             SaveButton.IsEnabled = true;
             isModified = true;
 
-            FileSettingsStatus.Text = "Modifying Settings file.";
+            ChangeFileSettingsStatus("Modifying Settings file.");
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e) {
@@ -99,7 +110,7 @@ namespace WpfApp2 {
             isModified = false;
             // set status
             MessageBox.Show("File saved! Backup made.");
-            FileSettingsStatus.Text = "Settings file saved.";
+            ChangeFileSettingsStatus("Settings file saved.");
         }
 
         private void ExitButton_Click(object sender, RoutedEventArgs e) {

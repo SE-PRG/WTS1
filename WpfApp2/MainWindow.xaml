@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" FontFamily="Lucida Sans Typewriter" FontWeight="Bold" FontSize="14" Loaded="Window_Loaded">
+        Title="MainWindow" Height="450" Width="800" FontFamily="Lucida Sans Typewriter" FontWeight="Bold" FontSize="14" Loaded="Window_Loaded" MinWidth="380" MinHeight="190">
     <Grid>
         <TextBox x:Name="TextBox" Margin="2,77,2,24" TextWrapping="Wrap" VerticalAlignment="Stretch" AcceptsReturn="True" Padding="8,8,8,8" IsEnabled="False" TextChanged="TextBox_TextChanged"/>
-        <Button x:Name="LoadButton" Content="Load" HorizontalAlignment="Left" Margin="91,40,0,0" VerticalAlignment="Top" Click="LoadButton_Click" Width="60"/>
-        <Button x:Name="SaveButton" Content="Save" HorizontalAlignment="Left" Margin="353,40,0,0" VerticalAlignment="Top" Width="60" IsEnabled="False" Click="SaveButton_Click"/>
-        <Button x:Name="ExitButton" Content="Exit" HorizontalAlignment="Left" Margin="617,40,0,0" VerticalAlignment="Top" Width="60" Click="ExitButton_Click"/>
+        <Button x:Name="LoadButton" Content="Load" HorizontalAlignment="Left" Margin="90,40,0,0" VerticalAlignment="Top" Click="LoadButton_Click" Width="60" Height="20"/>
+        <Button x:Name="SaveButton" Content="Save" HorizontalAlignment="Center" Margin="0,40,0,0" VerticalAlignment="Top" Width="60" IsEnabled="False" Click="SaveButton_Click" Height="20"/>
+        <Button x:Name="ExitButton" Content="Exit" HorizontalAlignment="Right" Margin="0,40,90,0" VerticalAlignment="Top" Width="60" Click="ExitButton_Click" Height="20"/>
         <StatusBar x:Name="StatusBar" Height="24" VerticalAlignment="Bottom" FontFamily="Lucida Sans Typewriter">
             <TextBlock x:Name="FileSettingsStatus" Text="Please load settings file..."/>
             <TextBlock x:Name="FileNameStatus" Text="FileName"/>

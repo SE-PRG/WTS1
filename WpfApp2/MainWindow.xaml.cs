@@ -54,15 +54,11 @@ namespace WpfApp2 {
             }
         }
 
-        private void ChangeFileSettingsStatus(string str)
-        {
-            if (String.IsNullOrEmpty(str)) {
-                FileSettingsStatus.Text = "";
-                return;
-            }
-            else {
-                FileSettingsStatus.Text = str;
-            }
+        private void ChangeStatuses(string statusBarText, bool buttonStatus) {
+            FileSettingsStatus.Text = statusBarText;
+            LoadButton.IsEnabled = buttonStatus;
+            SaveButton.IsEnabled = buttonStatus;
+            isModified = buttonStatus;
         }
 
         // GUI events handling
@@ -74,23 +70,14 @@ namespace WpfApp2 {
 
             if (!isModified) {
                 TextBox.Text = System.IO.File.ReadAllText(settingsFilePath);
-                isModified = false;
-
+                ChangeStatuses("Settings file loaded.", false);
                 TextBox.IsEnabled = true;
-                LoadButton.IsEnabled = false;
-                SaveButton.IsEnabled = false;
-
-                ChangeFileSettingsStatus("Settings file loaded.");
             }
 
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e) {
-            LoadButton.IsEnabled = true;
-            SaveButton.IsEnabled = true;
-            isModified = true;
-
-            ChangeFileSettingsStatus("Modifying Settings file.");
+            ChangeStatuses("Modifying Settings file.", true);
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e) {
@@ -105,12 +92,9 @@ namespace WpfApp2 {
             File.Copy(settingsFilePath, NewName);
             // save new settings
             File.WriteAllText(settingsFilePath, TextBox.Text);
-            LoadButton.IsEnabled = false;
-            SaveButton.IsEnabled = false;
-            isModified = false;
             // set status
             MessageBox.Show("File saved! Backup made.");
-            ChangeFileSettingsStatus("Settings file saved.");
+            ChangeStatuses("Settings file saved.", false);
         }
 
         private void ExitButton_Click(object sender, RoutedEventArgs e) {

@@ -55,7 +55,10 @@ namespace WpfApp2 {
         }
 
         private void ChangeStatuses(string statusBarText, bool buttonStatus) {
+            // update status bar text
             FileSettingsStatus.Text = statusBarText;
+            
+            // update buttons statuses and control variable
             LoadButton.IsEnabled = buttonStatus;
             SaveButton.IsEnabled = buttonStatus;
             isModified = buttonStatus;

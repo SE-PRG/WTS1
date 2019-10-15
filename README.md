@@ -1,4 +1,3 @@
-WTS1
 # Windows Terminal Settings app
 
 This is a simple Windows application that helps with editing Windows Terminal Settings.

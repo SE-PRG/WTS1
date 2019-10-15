@@ -35,6 +35,7 @@ namespace WpfApp2 {
             @"\Packages\" +
             @"Microsoft.WindowsTerminal_8wekyb3d8bbwe" + 
             @"\LocalState\profiles.json";
+        public static string applicationName = "Windows Terminal Settings";
         
 
         // internal functions
@@ -85,7 +86,7 @@ namespace WpfApp2 {
 
         private void SaveButton_Click(object sender, RoutedEventArgs e) {
             if (!ValidateJSON(TextBox.Text)) {
-                MessageBox.Show("Not a valid JSON");
+                MessageBox.Show("Not a valid JSON.", applicationName, MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
@@ -96,7 +97,7 @@ namespace WpfApp2 {
             // save new settings
             File.WriteAllText(settingsFilePath, TextBox.Text);
             // set status
-            MessageBox.Show("File saved! Backup made.");
+            MessageBox.Show("File saved! Backup made.", applicationName, MessageBoxButton.OK,MessageBoxImage.Information);
             ChangeStatuses("Settings file saved.", false);
         }
 

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" FontFamily="Lucida Sans Typewriter" FontWeight="Bold" FontSize="14" Loaded="Window_Loaded" MinWidth="380" MinHeight="190">
+        Title="Windows Terminal Settings" Height="450" Width="800" FontFamily="Lucida Sans Typewriter" FontWeight="Bold" FontSize="14" Loaded="Window_Loaded" MinWidth="380" MinHeight="190">
     <Grid>
         <TextBox x:Name="TextBox" Margin="2,77,2,24" TextWrapping="Wrap" VerticalAlignment="Stretch" AcceptsReturn="True" Padding="8,8,8,8" IsEnabled="False" TextChanged="TextBox_TextChanged" VerticalScrollBarVisibility="Visible"/>
         <Button x:Name="LoadButton" Content="Load" HorizontalAlignment="Left" Margin="90,40,0,0" VerticalAlignment="Top" Click="LoadButton_Click" Width="60" Height="20"/>

@@ -62,7 +62,7 @@ namespace WpfApp2 {
             // update buttons statuses and control variable
             LoadButton.IsEnabled = buttonStatus;
             SaveButton.IsEnabled = buttonStatus;
-            isModified = buttonStatus;
+            isModified = buttonStatus32324;
         }
 
         // GUI events handling

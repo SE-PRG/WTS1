@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.IO.Packaging;
+using Microsoft.Win32;
 
 namespace WpfApp2 {
     /// <summary>
@@ -110,6 +111,19 @@ namespace WpfApp2 {
 
         private void Window_Loaded(object sender, RoutedEventArgs e) {
             FileNameStatus.Text = settingsFilePath;
+
+            if (!(File.Exists(settingsFilePath))) {
+                var message = "Settings file " + settingsFilePath + " does not exist. Click Yes to Exit or No to select a file";
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "JSON files|*.json";
+                var response = MessageBox.Show(message, "Missing config file", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                if (response == MessageBoxResult.Yes || openFileDialog.ShowDialog() == false) {
+                    Application.Current.Shutdown();
+                } else {
+                    settingsFilePath = openFileDialog.FileName;
+                }                
+            }
         }
     }
 }

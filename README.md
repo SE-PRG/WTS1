@@ -8,7 +8,7 @@ Created as part of [HacktoberFest 2019 by DigitalOcean](https://hacktoberfest.di
 
 Application version 1.0
 
-![Screenshot V1](Screenshot_v1.png)
+![WTS_screenshot v1](WTS_screenshot_v1.png)
 
 ## Build status
 
